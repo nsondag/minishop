@@ -8,9 +8,15 @@ if ($_POST['submit'] == "OK")
 	$res = mysqli_query($conn, $sql);
 	$nb = mysqli_num_rows($res);
 	if (!$nb)
+	{
 		echo "User does not exist\n";
+		exit ();
+	}
 	if ($row != hash('whirlpool', $_POST['passwd']))
+	{
 		echo "Incorrect password\n";
+		exit ();
+	}
 }
 ?>
 <html>
