@@ -1,6 +1,4 @@
 <?PHP
-include ("connect.php");
-
 function add_user($user, $passwd)
 {
 	$conn = connect_db('minishop');

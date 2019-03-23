@@ -1,11 +1,16 @@
 <?PHP
 include ("connect.php");
-include ("add_user.php");
 
 if ($_POST['submit'] == "OK")
 {
-	if (!add_user($_POST['login'], $_POST['passwd']))
-		echo "User is invalid or exists\n";
+	$conn = connect_db('minishop');
+	$sql = "SELECT passwd FROM user WHERE login='".$_POST['login']."'";
+	$res = mysqli_query($conn, $sql);
+	$nb = mysqli_num_rows($res);
+	if (!$nb)
+		echo "User does not exist\n";
+	if ($row != hash('whirlpool', $_POST['passwd']))
+		echo "Incorrect password\n";
 }
 ?>
 <html>
