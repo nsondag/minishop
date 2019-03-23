@@ -13,7 +13,7 @@ if ($_POST['submit'] == "OK")
 		<form action="" method="post">
 			<input type="text" placeholder="username" name="login" value="" required/>
 			<br />
-			<input type="text" placeholder="password" name="passwd" value="" required/>
+			<input type="password" placeholder="password" name="passwd" value="" required/>
 			<br />
 			<input type="submit" name="submit" value="OK" />
 		</form>

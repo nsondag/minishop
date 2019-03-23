@@ -1,6 +1,6 @@
 <?PHP
 include ("connect.php");
-
+session_start();
 if ($_POST['submit'] == "OK")
 {
 	$conn = connect_db('minishop');
@@ -9,10 +9,16 @@ if ($_POST['submit'] == "OK")
 	$nb = mysqli_num_rows($res);
 	if (!$nb)
 	{
-		echo "User does not exist\n";
+		echo "User does not exist";
 		exit ();
 	}
-	if ($row != hash('whirlpool', $_POST['passwd']))
+	$row = mysqli_fetch_array($res);
+	if ($row[0] == hash('whirlpool', $_POST['passwd']))
+	{
+		echo "connexion reussie\n";
+		$_SESSION['login'] = $_POST['login'];
+	}
+	else
 	{
 		echo "Incorrect password\n";
 		exit ();
@@ -24,7 +30,7 @@ if ($_POST['submit'] == "OK")
 		<form action="" method="post">
 			<input type="text" placeholder="username" name="login" value="" required/>
 			<br />
-			<input type="text" placeholder="password" name="passwd" value="" required/>
+			<input type="password" placeholder="password" name="passwd" value="" required/>
 			<br />
 			<input type="submit" name="submit" value="OK" />
 		</form>
