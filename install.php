@@ -1,9 +1,5 @@
 <?php
 include ("connect.php");
-$host = '127.0.0.1';
-$user = 'root';
-$passwd = 'kz11hxmPIT';
-$db = 'minishop';
 
 $conn = connect();
 $req = "CREATE DATABASE minishop";
