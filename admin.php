@@ -96,13 +96,13 @@
 		Image : <input type="file" name="image" value="" accept="image/png, image/jpeg"><br>
 		<input type="submit" name="submit_add_article" value="add">
 	</form>
-	Change article value (enter NULL to delete an info) :
+	Change article value (enter NULL to delete all cat) :
 	<form name="change_price" method="post" action="" enctype="multipart/form-data">
 		<input type="text" name="name" placeholder="name" value="" required><br>
 		<input type="text" name="new_name" placeholder="new name" value=""><br>
 		<input type="text" name="new_price" placeholder="new price" value=""><br>
 		<input type="text" name="new_cat" placeholder="new cat (, separated)" value=""><br>
-		Delete current image : <input type="checkbox" name="delete_img"><br>
+		Delete current image : <input type="checkbox" name="delete_img" valud="1"><br>
 		New image : <input type="file" name="new_image" value="" accept="image/png, image/jpeg"><br>
 		<input type="submit" name="submit_change_article" value="change">
 	</form>
@@ -142,29 +142,96 @@
 					} else {
 						echo "'".$value."' not found<br>";
 					}
-					
 				}
 			}
 			if ($_FILES['image']['name'] != '') {
 				$target_file = $dir."/".$last_id.".".substr($_FILES['image']['name'], strrpos($_FILES['image']['name'], '.') + 1);
-				echo $target_file;
 				if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
 					$sql = "UPDATE prod SET image='".$target_file."' WHERE prod_id=".$last_id;
 					mysqli_query($conn, $sql);
-					echo "file uploaded<br>";
+					echo "image added<br>";
 				} else
 					echo "error while uploading image<br>";
 			}
 			echo "'".$_POST['name']."' added<br>";
 		}
 	} elseif ($_POST['submit_change_article']) {
-		$sql = "SELECT prod_name FROM prod WHERE prod_name='".$_POST['name']."'";
-		if (mysqli_num_rows(mysqli_query($conn, $sql))) {
-			echo "'".$_POST['name']."' already exists<br>";
+		$sql = "SELECT prod_id FROM prod WHERE prod_name='".$_POST['name']."'";
+		$res = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_array($res);
+		if (mysqli_num_rows($res)) {
+			if ($_POST['new_name'] != '') {
+				$sql = "SELECT prod_id FROM prod WHERE prod_name='".$_POST['new_name']."'";
+				if (mysqli_num_rows(mysqli_query($conn, $sql))) {
+					echo "'".$_POST['new_name']."' already exists<br>";
+				} else {
+					$sql = "UPDATE prod SET prod_name='".$_POST['new_name']."' WHERE prod_id='".$row['prod_id']."'";
+					mysqli_query($conn, $sql);
+					echo "'".$_POST['name']."' changed to '".$_POST['new_name']."'<br>";
+				}
+			}
+			if ($_POST['new_price'] != '') {
+				$sql = "UPDATE prod SET price='".$_POST['new_price']."' WHERE prod_id='".$row['prod_id']."'";
+				mysqli_query($conn, $sql);
+				echo "price of '".$_POST['name']."' changed to '".$_POST['new_price']."'<br>";
+			}
+			if ($_POST['new_cat'] != '') {
+				$sql = "DELETE FROM link WHERE fk_prod_id IN (SELECT prod_id FROM prod WHERE prod_name='".$_POST['name']."')";
+				mysqli_query($conn, $sql);
+				$cat = explode(',', $_POST['new_cat']);
+				foreach ($cat as $value) {
+					$sql = "SELECT cat_id FROM cat WHERE cat_name='".trim($value)."'";
+					$res = mysqli_query($conn, $sql);
+					if ($row2 = mysqli_fetch_array($res)) {
+						$sql = "INSERT INTO link VALUES (NULL, ".$row2['cat_id'].", ".$row['prod_id'].")";
+						mysqli_query($conn, $sql);
+						echo "'".$_POST['name']."' added to '".$value."'<br>";
+					} else {
+						echo "'".$value."' not found<br>";
+					}
+				}
+			}
+			if ($_POST['delete_img']) {
+				$sql = "SELECT image FROM prod WHERE prod_name='".$_POST['name']."'";
+				$row = mysqli_fetch_array(mysqli_query($conn, $sql));
+				if ($row['image'] != '') {
+					$sql = "UPDATE prod SET image='NULL WHERE prod_name='".$_POST['name']."'";
+					mysqli_query($conn, $sql);
+					unlink($row['image']);
+					echo "image deleted<br>";
+				} else {
+					echo "'".$_POST['name']."' had no image<br>";
+				}
+			}
+			if ($_FILES['new_image']['name'] != '') {
+				$sql = "SELECT image FROM prod WHERE prod_name='".$_POST['name']."'";
+				$row2 = mysqli_fetch_array(mysqli_query($conn, $sql));
+				if ($row2['image'] != '') {
+					$sql = "UPDATE prod SET image='NULL WHERE prod_name='".$_POST['name']."'";
+					mysqli_query($conn, $sql);
+					unlink($row2['image']);
+					echo "image deleted<br>";
+				}
+				$target_file = $dir."/".$row['prod_id'].".".substr($_FILES['new_image']['name'], strrpos($_FILES['new_image']['name'], '.') + 1);
+				if (move_uploaded_file($_FILES['new_image']['tmp_name'], $target_file)) {
+					$sql = "UPDATE prod SET image='".$target_file."' WHERE prod_id=".$row['prod_id'];
+					mysqli_query($conn, $sql);
+					echo "image added<br>";
+				} else
+					echo "error while uploading image<br>";
+			}
 		} else {
 			echo "'".$_POST['name']."' not found<br>";
 		}
 	} elseif ($_POST['submit_delete_article']) {
+		$sql = "SELECT image FROM prod WHERE prod_name='".$_POST['name']."'";
+		$row2 = mysqli_fetch_array(mysqli_query($conn, $sql));
+		if ($row2['image'] != '') {
+			$sql = "UPDATE prod SET image='NULL WHERE prod_name='".$_POST['name']."'";
+			mysqli_query($conn, $sql);
+			unlink($row2['image']);
+			echo "image deleted<br>";
+		}
 		$sql = "DELETE FROM link WHERE fk_prod_id IN (SELECT prod_id FROM prod WHERE prod_name='".$_POST['name']."')";
 		mysqli_query($conn, $sql);
 		$sql = "DELETE FROM prod WHERE prod_name='".$_POST['name']."'";
