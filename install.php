@@ -1,21 +1,14 @@
 <?php
+include ("connect.php");
 $host = '127.0.0.1';
 $user = 'root';
-$passwd = 'hubert';
+$passwd = 'kz11hxmPIT';
 $db = 'minishop';
 
-$conn = mysqli_connect($host, $user, $passwd);
-if (!$conn) {
-	echo "connect error\n";
-	exit();
-}
+$conn = connect();
 $req = "CREATE DATABASE minishop";
 mysqli_query($conn, $req);
-$conn = mysqli_connect($host, $user, $passwd, $db);
-if (!$conn) {
-	echo "connect error\n";
-	exit();
-}
+$conn = connect_db($db);
 $req = "CREATE TABLE user (user_id INT NOT NULL AUTO_INCREMENT , login VARCHAR(50) NOT NULL , passwd CHAR(128) NOT NULL , PRIMARY KEY (`user_id`))";
 mysqli_query($conn, $req);
 $req = "CREATE TABLE prod (prod_id INT NOT NULL AUTO_INCREMENT , prod_name VARCHAR(100) NOT NULL , price DECIMAL(9,2) NOT NULL , image VARCHAR(100), PRIMARY KEY (`prod_id`))";
