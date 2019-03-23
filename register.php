@@ -8,14 +8,3 @@ if ($_POST['submit'] == "OK")
 		echo "User is invalid or exists\n";
 }
 ?>
-<html>
-	<body>
-		<form action="" method="post">
-			<input type="text" placeholder="username" name="login" value="" required/>
-			<br />
-			<input type="password" placeholder="password" name="passwd" value="" required/>
-			<br />
-			<input type="submit" name="submit" value="OK" />
-		</form>
-	</body>
-</html>

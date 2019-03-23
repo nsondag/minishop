@@ -243,24 +243,24 @@
 </div>
 
 <div id="cat_mgmt" class="box">
-	<h1>Categorie management</h1>
-	Search categorie :
+	<h1>Category management</h1>
+	Search category :
 	<form name="search_categorie" method="post" action="">
 		<input type="text" name="name" placeholder="name" value=""><br>
 		<input type="submit" name="submit_search_categorie" value="search">
 	</form>
-	Add categorie :
+	Add category :
 	<form name="add_categorie" method="post" action="">
 		<input type="text" name="name" placeholder="name" value="" required><br>
 		<input type="submit" name="submit_add_categorie" value="add">
 	</form>
-	Rename categorie :
+	Rename category :
 	<form name="change_categorie" method="post" action="">
 		<input type="text" name="old_name" placeholder="old name" value="" required><br>
 		<input type="text" name="new_name" placeholder="new name" value="" required><br>
 		<input type="submit" name="submit_change_categorie" value="change">
 	</form>
-	Delete categorie :
+	Delete category :
 	<form name="del_categorie" method="post" action="">
 		<input type="text" name="name" placeholder="name" value="" required><br>
 		<input type="submit" name="submit_delete_categorie" value="delete">
@@ -304,11 +304,4 @@
 		if (mysqli_affected_rows($conn))
 			echo $_POST['name']." deleted<br>";
 	}
-	?>
-</div>
-
-
-</div>
-
-</body>
-</html>
+?>
