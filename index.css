@@ -12,24 +12,11 @@ h1 {
 	font-size: 120%;
 }
 
-.btncat {
+.cat {
 	margin: none;
 	border: none;
 	padding: none;
 	background-color: lime;
 	font-weight: bold;
 	font-size: 300%;
-
-}
-
-.prod {
-	display: none;
-}
-
-.prod a {
-	display: block;
-}
-
-.cat:hover .prod {
-	display: block;
 }

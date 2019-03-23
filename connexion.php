@@ -1,3 +1,5 @@
+<html>
+<body>
 <?PHP
 include ("connect.php");
 session_start();
@@ -9,7 +11,7 @@ if ($_POST['submit'] == "OK")
 	$nb = mysqli_num_rows($res);
 	if (!$nb)
 	{
-		echo "User does not exist";
+		echo "User does not exist <br />";
 		exit ();
 	}
 	$row = mysqli_fetch_array($res);
@@ -18,15 +20,17 @@ if ($_POST['submit'] == "OK")
 	$nb = mysqli_num_rows($res);
 	if ($row[1] == hash('whirlpool', $_POST['passwd']))
 	{
-		echo "connexion reussie\n";
+		echo "connexion reussie <br />";
 		$_SESSION['login'] = $_POST['login'];
 		if ($nb)
-			echo "super admin\n";
+			echo "super admin <br /n>";
 	}
 	else
 	{
-		echo "Incorrect password\n";
+		echo "Incorrect password <br /n>";
 		exit ();
 	}
 }
 ?>
+</body>
+</html>

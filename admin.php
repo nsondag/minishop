@@ -304,11 +304,4 @@
 		if (mysqli_affected_rows($conn))
 			echo $_POST['name']." deleted<br>";
 	}
-	?>
-</div>
-
-
-</div>
-
-</body>
-</html>
+?>
