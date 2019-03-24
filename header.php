@@ -1,4 +1,5 @@
 <?PHP
+session_start();
 $conn = connect_db('minishop');
 $sql = "SELECT * FROM cat";
 $res = mysqli_query($conn, $sql);
@@ -9,9 +10,18 @@ $row = mysqli_fetch_all($res);
 </head>
 <header>
 <div class=connexion>
-	<a href="basket.php">Panier</a>
-	<a href="connexion.php">Connexion</a>
-	<a href="register.php">Inscription</a>
+<?PHP if (!$_SESSION['login'])
+{
+	echo "<a href='connexion.php'>Connexion</a> ";
+	echo "<a href='register.php'>Inscription</a> ";
+}
+else
+{
+	echo $_SESSION['login'] ." ";
+	echo "<a href='deco.php'>Deconnexion</a> ";
+}
+echo "<a href='basket.php'>Panier</a> ";
+?>
 </div>
 <table>
 <td>
