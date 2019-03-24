@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Page d'inscription</title>
+		<title>Inscription</title>
 		<link rel="stylesheet" href="register.css">
 	</head>
 	<body>
@@ -16,7 +16,7 @@ else
 	$add = 2;
 include 'header.php';
 ?>
-	<h3>Page d'Inscription</h3>
+	<h3>Inscription</h3>
 		<form action="register.php" method="post">
 			<input type="text" placeholder="username" name="login" value="" required/>
 			<br /><br />

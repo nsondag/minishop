@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Panier validé</title>
+	<title>Error</title>
 	<style type="text/css">
 		body {
 			margin: 0;

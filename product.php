@@ -21,7 +21,7 @@ if ($_POST['add'] == 'Ajouter au panier') {
 <html>
 <head>
 	<link rel="stylesheet" href="product.css">
-	<title><?php echo $res['prod_name'];?></title>
+	<title><?php echo ucfirst($res2['prod_name']);?></title>
 </head>
 <?php
 include 'header.php';

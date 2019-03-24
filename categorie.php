@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title><?PHP echo $_GET['cat']?></title>
+		<title><?PHP echo ucfirst($_GET['cat']);?></title>
 		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" href="categorie.css">
 	</head>
@@ -8,6 +8,11 @@
 include 'util.php';
 include 'header.php';
 $conn = connect_db('minishop');
+$sql = "SELECT * FROM cat WHERE cat_name='".$_GET['cat']."'";
+$res2 = mysqli_query($conn, $sql);
+if (!mysqli_num_rows($res2)) {
+	header('Location: error.php');
+}
 $sql = "SELECT * FROM prod WHERE prod_id IN (SELECT fk_prod_id FROM link WHERE fk_cat_id IN (SELECT cat_id FROM cat WHERE cat_name='".$_GET['cat']."'))";
 $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_all($res);

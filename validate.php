@@ -1,6 +1,11 @@
 <html>
 <head>
-	<title>Panier validé</title>
+	<title><?php
+		if ($_SESSION['basket'])
+			echo "Panier validé !";
+		else
+			echo "Panier vide !";
+	?></title>
 	<style type="text/css">
 		body {
 			margin: 0;
