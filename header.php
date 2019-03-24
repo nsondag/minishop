@@ -12,10 +12,15 @@ $row = mysqli_fetch_all($res);
 	<a href="#panier">Panier</a>
 	<a href="connexion.php">Connexion</a>
 	<a href="register.php">Inscription</a>
-<div class='container'>
+<table>
+<td>
+<img class='header_img' src="Minishop.png">
+</td>
+<td class='container'>
 <?PHP
 foreach ($row as $elem)
 	echo '<a class="cat" href="/categorie.php?cat='.$elem[1].'">'.strtoupper($elem[1]).'</a> ';
 ?>
-		</div>
+		</td>
+</table>
 </header>
