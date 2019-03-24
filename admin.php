@@ -24,12 +24,6 @@
 		<input type="text" name="login" placeholder="login" value=""><br>
 		<input type="submit" name="submit_search_user" value="search">
 	</form>
-	<!-- Change password :
-	<form name="change_passwd" method="post" action="">
-		<input type="text" name="login" placeholder="login" value="" required><br>
-		<input type="passwd" name="passwd" placeholder="new password" value="" required><br>
-		<input type="submit" name="submit_change_passwd" value="change">
-	</form> -->
 	Add user :
 	<form name="add_user" method="post" action="">
 		<input type="text" name="login" placeholder="login" value="" required><br>
@@ -49,7 +43,7 @@
 	</form>
 
 	<?php
-	include 'connect.php';
+	include 'util.php';
 	include 'add_user.php';
 
 	$conn = connect_db('minishop');
@@ -145,9 +139,10 @@
 				}
 			}
 			if ($_FILES['image']['name'] != '') {
-				$target_file = $dir."/".$last_id.".".substr($_FILES['image']['name'], strrpos($_FILES['image']['name'], '.') + 1);
+				$target_file = $dir."/".$last_id.".".get_ext($_FILES['image']['name']);
 				if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-					$sql = "UPDATE prod SET image='".$target_file."' WHERE prod_id=".$last_id;
+					$rel_path = "image/".$last_id.".".get_ext($_FILES['image']['name']);
+					$sql = "UPDATE prod SET image='".$rel_path."' WHERE prod_id=".$last_id;
 					mysqli_query($conn, $sql);
 					echo "image added<br>";
 				} else
@@ -195,7 +190,7 @@
 				$sql = "SELECT image FROM prod WHERE prod_name='".$_POST['name']."'";
 				$row = mysqli_fetch_array(mysqli_query($conn, $sql));
 				if ($row['image'] != '') {
-					$sql = "UPDATE prod SET image='NULL WHERE prod_name='".$_POST['name']."'";
+					$sql = "UPDATE prod SET image=NULL WHERE prod_name='".$_POST['name']."'";
 					mysqli_query($conn, $sql);
 					unlink($row['image']);
 					echo "image deleted<br>";
@@ -212,9 +207,10 @@
 					unlink($row2['image']);
 					echo "image deleted<br>";
 				}
-				$target_file = $dir."/".$row['prod_id'].".".substr($_FILES['new_image']['name'], strrpos($_FILES['new_image']['name'], '.') + 1);
+				$target_file = $dir."/".$row['prod_id'].".".get_ext($_FILES['new_image']['name']);
 				if (move_uploaded_file($_FILES['new_image']['tmp_name'], $target_file)) {
-					$sql = "UPDATE prod SET image='".$target_file."' WHERE prod_id=".$row['prod_id'];
+					$rel_path = "image/".$row['prod_id'].".".get_ext($_FILES['new_image']['name']);
+					$sql = "UPDATE prod SET image='".$rel_path."' WHERE prod_id=".$row['prod_id'];
 					mysqli_query($conn, $sql);
 					echo "image added<br>";
 				} else
