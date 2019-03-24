@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title></title>
+		<title>Page d'accueil</title>
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<?PHP 

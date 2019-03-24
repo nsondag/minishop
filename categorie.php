@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title></title>
+		<title><?PHP echo $_GET['cat']?></title>
 		<link rel="stylesheet" href="index.css">
 	</head>
 <?PHP
@@ -18,7 +18,7 @@ $row = mysqli_fetch_all($res);
 foreach ($row as $elem)
 {
 			echo "<td class='prod'>\n";
-			echo "<img class='prod_img' src='" . $elem[3] . "'>\n";
+			echo "<a href='product.php'><img class='prod_img' src='" . $elem[3] . "'></a>\n";
 			echo "<p class='name'>" . $elem[1]. "</p>\n";
 			echo "<p class='price'>" . $elem[2]." € </p>\n";
 			echo "</td>";

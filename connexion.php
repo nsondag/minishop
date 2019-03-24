@@ -52,10 +52,7 @@ include 'header.php';
 				if (connexion() == -1)
 					echo "<p class='error'>Le mot de passe n'est pas correct.</p>";
 				if (connexion() == 2)
-				{
-					echo "<p class='succes'>Connexion admin réussie.</p>";
-					echo "<a href='admin.php'>Page d'administration et de gestion</a>";
-				}
+					header("Location: admin.php");
 			else
 			echo "<a href='../register.php'>Pas encore de compte?</a>"
 			?>
