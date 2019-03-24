@@ -43,7 +43,7 @@ echo "</div>";
 		}
 		?>
 	</select>
-	<input type="submit" name="add" value="Ajouter au panier"></input>
+	<input type="submit" class="btn" name="add" value="Ajouter au panier"></input>
 </form>
 <?php
 if ($_POST['add'] == 'Ajouter au panier') {

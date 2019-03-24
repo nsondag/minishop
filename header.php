@@ -9,7 +9,7 @@ $row = mysqli_fetch_all($res);
 </head>
 <header>
 <div class=connexion>
-	<a href="#panier">Panier</a>
+	<a href="basket.php">Panier</a>
 	<a href="connexion.php">Connexion</a>
 	<a href="register.php">Inscription</a>
 </div>
