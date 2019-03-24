@@ -1,7 +1,3 @@
-<?PHP
-
-?>
-
 <html>
 	<head>
 		<title>Page d'inscription</title>
@@ -9,7 +5,15 @@
 	</head>
 	<body>
 <?PHP
+session_start();
 include 'util.php';
+if ($_POST['submit'] == "OK")
+{
+	if ($add = add_user($_POST['login'], $_POST['passwd']))
+		connexion();
+}
+else
+	$add = 2;
 include 'header.php';
 ?>
 	<h3>Page d'Inscription</h3>
@@ -20,16 +24,12 @@ include 'header.php';
 			<br /><br />
 			<input type="submit" name="submit" value="OK" />
 			<br /><br />
-			<?PHP
-			if ($_POST['submit'] == "OK")
-			{
-			if (!add_user($_POST['login'], $_POST['passwd']))
-				echo "<p class='error'>User exists already.</p>";
-			else
-				echo "<p class='success'>User created.</p>";
-
-			}
-			?>
+	<?PHP
+	if ($add == 1)
+		echo "<p class='success'>User created.</p>";
+	elseif ($add == 0)
+		echo "<p class='error'>User exists already.</p>";
+	?>
 			<a href="../connexion.php">Déjà un compte?</a>
 		</form>
 	</body>
