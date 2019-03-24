@@ -1,7 +1,11 @@
 <html>
+<head>
+	<title>Connexion</title>
+	<link rel="stylesheet" href="connexion2.css">
+</head>
+<?PHP include ("header.php");?>
 <body>
 <?PHP
-include ("connect.php");
 session_start();
 if ($_POST['submit'] == "OK")
 {
@@ -32,5 +36,15 @@ if ($_POST['submit'] == "OK")
 	}
 }
 ?>
-</body>
+	<h3>Page de Connexion</h3>
+		<form action="" method="post">
+			<input type="text" placeholder="username" name="login" value="" required/>
+			<br />
+			<input type="password" placeholder="password" name="passwd" value="" required/>
+			<br /><br />
+			<input type="submit" name="submit" value="OK" />
+			<br /><br />
+			<a href="../register.php">Pas encore de compte?</a>
+		</form>
+	</body>
 </html>

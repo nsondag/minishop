@@ -10,8 +10,8 @@ $row = mysqli_fetch_all($res);
 </head>
 <header>
 	<a href="#panier">Panier</a>
-	<a href="#connexion">Connexion</a>
-	<a href="#inscription">Inscription</a>
+	<a href="connexion.php">Connexion</a>
+	<a href="register.php">Inscription</a>
 <div class='container'>
 <?PHP
 foreach ($row as $elem)
