@@ -303,3 +303,59 @@
 			echo $_POST['name']." deleted<br>";
 	}
 ?>
+</div>
+
+<div id="comm_mgmt" class="box">
+	<h1>Command management</h1>
+	Search user command :
+	<form name="search_command" method="post" action="">
+		<input type="text" name="name" placeholder="name" value=""><br>
+		<input type="submit" name="submit_search_command" value="search">
+	</form>
+	Remove product from all command :
+	<form name="del_command" method="post" action="">
+		<input type="text" name="name" placeholder="name" value="" required><br>
+		<input type="submit" name="submit_delete_prod_command" value="delete">
+	</form>
+	Remove user command :
+	<form name="del_command" method="post" action="">
+		<input type="text" name="name" placeholder="name" value="" required><br>
+		<input type="submit" name="submit_delete_command" value="delete">
+	</form>
+	
+	<?php
+	$dir = $_SERVER['DOCUMENT_ROOT']."/image";
+	if (!file_exists($dir))
+		mkdir($dir);
+
+	if ($_POST['submit_search_command']) {
+		$sql = "SELECT user_id, login FROM user WHERE login LIKE '".$_POST['name']."%'";
+		$res = mysqli_query($conn, $sql);
+		echo 'Command from user that start with "'.$_POST['name'].'":<br>';
+		while ($row = mysqli_fetch_array($res))
+		{
+			$sql = "SELECT command.nb_prod AS number, prod.prod_name AS prod_name FROM command 
+			INNER JOIN prod ON prod.prod_id = command.fk_prod_id
+			INNER JOIN user ON user.user_id = command.fk_user_id
+			WHERE user.user_id=".$row['user_id'];
+			$res2 = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($res2))
+				echo $row['login']." : <br>";
+			while ($row2 = mysqli_fetch_array($res2)) {
+				echo $row2['number']." ".$row2['prod_name']." <br>";
+			}
+		}
+	} elseif ($_POST['submit_delete_prod_command']) {
+		$sql = "DELETE FROM command WHERE fk_prod_id IN (SELECT prod_id FROM prod WHERE prod_name='".$_POST['name']."')";
+		mysqli_query($conn, $sql);
+		echo "all '".$_POST['name']."' deleted<br>";
+	} elseif ($_POST['submit_delete_command']) {
+		$sql = "DELETE FROM command WHERE fk_user_id IN (SELECT user_id FROM user WHERE login='".$_POST['name']."')";
+		mysqli_query($conn, $sql);
+		echo "all product from '".$_POST['name']."' deleted<br>";
+	}
+?>
+</div>
+</div>
+</body>
+</html>
