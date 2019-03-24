@@ -1,4 +1,5 @@
 header {
+	height:20%;
 	padding: 10px;
 	background-color: #C0C0C0;
 }
@@ -10,7 +11,7 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	color: black;
-	justify-content: space-between;
+	justify-content: space-around;
 	background-color: #C0C0C0;
 	font-weight: bold;
 }
@@ -21,6 +22,10 @@ header {
 	padding: 2%;
 	font-size: 20;
 	text-decoration: none;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #C0C0C0;
+	border-radius: 10px;
 }
 
 .cat:visited {
@@ -28,15 +33,13 @@ header {
 }
 
 .cat:hover {
-	border-style: solid;
-	border-width: 3px;
 	border-color: #ffe900;
-	border-radius: 10px;
 }
 
 .header_img {
 	margin: 0;
 	padding: 0;
 	display:block;
-	width: 50%;
+	height: 95%;
+	float:left;
 }

@@ -9,6 +9,9 @@ $row = mysqli_fetch_all($res);
 	<link rel="stylesheet" href="header.css">
 </head>
 <header>
+<div id='logo'>
+	<a href="index.php"><img class='header_img' src="Minishop.png"></a>
+</div>
 <div class=connexion>
 <?PHP if (!$_SESSION['login'])
 {
@@ -23,15 +26,11 @@ else
 echo "<a href='basket.php'>Panier</a> ";
 ?>
 </div>
-<table>
-<td>
-<a href="index.php"><img class='header_img' src="Minishop.png"></a>
-</td>
-<td class='container'>
+
+<div class='container'>
 <?PHP
 foreach ($row as $elem)
 	echo '<a class="cat" href="/categorie.php?cat='.$elem[1].'">'.strtoupper($elem[1]).'</a> ';
 ?>
-		</td>
-</table>
+</div>
 </header>
