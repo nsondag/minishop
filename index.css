@@ -8,7 +8,7 @@ h1 {
 
 h2 {
 	margin-top: 0;
-	padding-left: 5%;
+	padding-left: 3%;
 }
 
 .main_img {
@@ -21,15 +21,16 @@ h2 {
 }
 
 .prod_img {
-	padding: 2%;
+	padding-top: 4%;
+	margin: auto;
 	display: block;
-	width: 93.5%;
+	height: 80%;
 }
 
  .price {
 	margin-top: 0;
-	padding: 2%;
-	text-align: right;
+	padding-right: 2%;
+	text-align: center;
 	color: red;
 }
 
@@ -41,6 +42,7 @@ h2 {
 }
 
 .prod {
+	margin: 0;
 	height: 30vmin;
 	width: 30vmin;
 	border: solid;

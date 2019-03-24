@@ -11,3 +11,11 @@ form, h3 {
 h3	{
 	font-size: 300%;
 }
+
+.success {
+	color: lime;
+}
+
+.error {
+	color: red;
+}

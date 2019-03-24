@@ -14,7 +14,7 @@
 		<h2>Suggestions du jour</h2>
 		<table>
 			<td class="prod">
-				<img class='prod_img' src="<?PHP echo $row[0][3];?>">
+			<img class='prod_img' src="<?PHP echo $row[0][3];?>">
 				<p class="name"><?PHP echo $row[0][1];?></p>
 				<p class="price"><?PHP echo $row[0][2]." €";?></p>
 			</td>
