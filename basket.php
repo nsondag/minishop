@@ -23,20 +23,6 @@ include 'header.php';
 			border-collapse: collapse;
 			font-size: 2em;
 		}
-		button {
-			background-color: #62B3AD;
-			border: none;
-			color: white;
-			padding: 15px 32px;
-			border-radius: 10px;
-			text-align: center;
-			text-decoration: none;
-			font-size: 16px;
-			cursor: pointer;
-			margin: auto;
-			margin-top: 20px;
-			display: block;
-		}
 	</style>
 </head>
 <body>

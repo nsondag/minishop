@@ -2,6 +2,7 @@
 	<head>
 		<title><?PHP echo $_GET['cat']?></title>
 		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="categorie.css">
 	</head>
 <?PHP
 include 'util.php';
@@ -13,17 +14,17 @@ $row = mysqli_fetch_all($res);
 ?>
 	<body>
 		<h1><?PHP echo strtoupper($_GET['cat']) ?></h1>
-		<table>
+<div class='contain'>
 <?PHP
 foreach ($row as $elem)
 {
-			echo "<td class='prod'>\n";
-			echo "<a href='product.php?prod=".$elem[1]."'><img class='prod_img' src='" . $elem[3] . "'></a>\n";
-			echo "<p class='name'>" . $elem[1]. "</p>\n";
-			echo "<p class='price'>" . $elem[2]." € </p>\n";
-			echo "</td>";
+	echo "<div class='prod'><div class='prod_im'>";
+	echo "<a href='product.php?prod=".$elem[1]."'><img class='prod_img' src='" . $elem[3] . "'></a></div>";
+	echo "<p class='name'>" . $elem[1]. "</p>\n";
+	echo "<p class='price'>" . $elem[2]." € </p>\n";
+	echo "</div>";
 }
 ?>
-		</table>
+</div>
 	</body>
 </html>

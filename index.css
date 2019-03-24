@@ -55,13 +55,14 @@ h2 {
 
 .contain {
 	display: flex;
+		justify-content: space-around;
 }
 
 .prod {
 	padding: 5px;
 	margin: 0;
 	height: 30%;
-	width: 25%;
+	width: 24%;
 	border: solid;
 	box-sizing: border-box;
 }
