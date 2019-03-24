@@ -24,12 +24,12 @@ include 'header.php';
 			<br /><br />
 			<input type="submit" name="submit" value="OK" />
 			<br /><br />
-	<?PHP
-	if ($add == 1)
-		echo "<p class='success'>User created.</p>";
-	elseif ($add == 0)
-		echo "<p class='error'>User exists already.</p>";
-	?>
+			<?PHP
+			if ($add == 1)
+				echo "<p class='success'>User created.</p>";
+			elseif ($add == 0)
+				echo "<p class='error'>User exists already.</p>";
+			?>
 			<a href="../connexion.php">Déjà un compte?</a>
 		</form>
 	</body>
