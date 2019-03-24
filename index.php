@@ -6,7 +6,7 @@
 <?PHP 
 include 'util.php';
 include 'header.php';
-$sql = "SELECT * FROM prod LIMIT 4";
+$sql = "SELECT * FROM prod ORDER BY RAND () LIMIT 4";
 $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_all($res);
 ?>
