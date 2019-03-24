@@ -46,6 +46,9 @@
 	include 'util.php';
 
 	$conn = connect_db('minishop');
+	$sql = "SELECT admin_id FROM admin WHERE fk_user_id=(SELECT user_id FROM user WHERE login='".$_SESSION['login']."' LIMIT 1)";
+	if (!mysqli_num_rows(mysqli_query($conn, $sql)))
+		header('Location: connexion.php');
 	if ($_POST['submit_search_user']) {
 		$sql = "SELECT login FROM user WHERE login LIKE '".$_POST['login']."%'";
 		$res = mysqli_query($conn, $sql);
