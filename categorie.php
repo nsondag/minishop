@@ -12,7 +12,7 @@ $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_all($res);
 ?>
 	<body>
-		<h1><?PHP  echo strtoupper($_GET['cat']) ?></h1>
+		<h1><?PHP echo strtoupper($_GET['cat']) ?></h1>
 		<table>
 <?PHP
 foreach ($row as $elem)
