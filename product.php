@@ -1,5 +1,6 @@
 <?php
 include 'util.php';
+session_start();
 $conn = connect_db('minishop');
 $sql = "SELECT * FROM prod WHERE prod_name='".$_GET['prod']."'";
 $res2 = mysqli_query($conn, $sql);
@@ -7,11 +8,13 @@ if (!mysqli_num_rows($res2)) {
 	header('Location: error.php');
 }
 $res2 = mysqli_fetch_array($res2);
-if ($_POST['add']) {
+if (!$_SESSION['basket'])
+	$_SESSION['basket']=array();
+if ($_POST['add'] == 'Ajouter au panier') {
 	if ($_SESSION['basket'][$_GET['prod']])
-		$_SESSION['basket'][$_GET['prod']]++;
+		$_SESSION['basket'][$_GET['prod']]+=$_POST['nb_prod'];
 	else
-		$_SESSION['basket'][$_GET['prod']] = 1;
+		$_SESSION['basket'][$_GET['prod']] = $_POST['nb_prod'];
 }
 ?>
 <html>
@@ -27,7 +30,19 @@ echo "<h1>".strtoupper($_GET['prod'])."</h1>";
 echo "<img class='prod_img' src='" . $res2['image'] . "'>";
 ?>
 <form method="post" action="">
-	<button type="submit" name="add">Ajouter au panier</button>
+	<select name="nb_prod">
+		<?php
+		for ($i = 1; $i <= 10;$i++) {
+			echo '<option value="'.$i.'">'.$i.'</option>';
+		}
+		?>
+	</select>
+	<input type="submit" name="add" value="Ajouter au panier"></input>
 </form>
+<?php
+if ($_POST['add'] == 'Ajouter au panier') {
+	echo "Ajouté au panier !";
+}
+?>
 </body>
 </html>
