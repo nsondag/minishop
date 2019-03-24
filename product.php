@@ -44,11 +44,11 @@ echo "</div>";
 		?>
 	</select>
 	<input type="submit" name="add" value="Ajouter au panier"></input>
+	<?php
+	if ($_POST['add'] == 'Ajouter au panier') {
+		echo "<p >Ajouté au panier !</p>";
+	}
+	?>
 </form>
-<?php
-if ($_POST['add'] == 'Ajouter au panier') {
-	echo "Ajouté au panier !";
-}
-?>
 </body>
 </html>

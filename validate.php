@@ -3,7 +3,7 @@
 	<title>Panier validé</title>
 	<style type="text/css">
 		body {
-			display: table-cell;
+			margin: 0;
 			vertical-align: middle;
 			height: 100vh;
 			width: 100vw;
@@ -25,7 +25,6 @@ else {
 	$user_id = mysqli_fetch_array(mysqli_query($conn, $sql));
 	foreach ($_SESSION['basket'] as $key => $value) {
 		$sql = "INSERT INTO command VALUES (NULL, ".$user_id['user_id'].", (SELECT prod_id FROM prod WHERE prod_name='".$key."' LIMIT 1), ".$value.")";
-		echo $sql."<br>";
 		mysqli_query($conn, $sql);
 	}
 }
