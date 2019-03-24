@@ -11,7 +11,7 @@
 	</style>
 </head>
 <?php
-include 'connect.php';
+include 'util.php';
 include 'header.php';
 ?>
 <body>

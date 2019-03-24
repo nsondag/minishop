@@ -44,7 +44,6 @@
 
 	<?php
 	include 'util.php';
-	include 'add_user.php';
 
 	$conn = connect_db('minishop');
 	if ($_POST['submit_search_user']) {

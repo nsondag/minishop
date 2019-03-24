@@ -3,7 +3,9 @@
 		<title></title>
 		<link rel="stylesheet" href="index.css">
 	</head>
-	<?PHP include("header.php");
+	<?PHP 
+	include 'util.php';
+	include 'header.php';
 	$sql = "SELECT * FROM prod";
 	$res = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_all($res);

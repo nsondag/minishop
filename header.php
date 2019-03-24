@@ -1,5 +1,4 @@
 <?PHP
-include ("connect.php");
 $conn = connect_db('minishop');
 $sql = "SELECT * FROM cat";
 $res = mysqli_query($conn, $sql);

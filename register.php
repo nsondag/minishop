@@ -9,8 +9,8 @@
 	</head>
 	<body>
 <?PHP
-include ("header.php");
-include ("add_user.php");
+include 'util.php';
+include 'header.php';
 ?>
 	<h3>Page d'Inscription</h3>
 		<form action="register.php" method="post">

@@ -29,11 +29,12 @@ function connexion()
 	<title>Connexion</title>
 	<link rel="stylesheet" href="connexion.css">
 </head>
-<?PHP include ("header.php");?>
-<body>
 <?PHP
 session_start();
+include 'util.php';
+include 'header.php';
 ?>
+<body>
 	<h3>Page de Connexion</h3>
 		<form action="" method="post">
 			<input type="text" placeholder="username" name="login" value="" required/>
