@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+}
+
+h1 {
+	text-align: center;
+}
+
+.prod_img {
+	padding-top: 4%;
+	margin: auto;
+	display: block;
+	height: 50%;
+}
+
+ .price {
+	text-align: center;
+	color: red;
+	font-weight: bold;
+	font-size: 200%
+}
+
+.name {
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+	font-size: 200% 
+}
+
+.prod {
+	border: 5px;
+}
+
+.btn {
+	margin: auto;
+	text-align: center;
+	text-align: center;
+}
