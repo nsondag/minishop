@@ -29,15 +29,15 @@ mysqli_query($conn, $req);
 # category creation
 
 $req = "INSERT INTO cat VALUES
-	(NULL, 'fruits'),
-	(NULL, 'legumes'),
-	(NULL, 'viandes'),
-	(NULL, 'produits laitiers'),
-	(NULL, 'frais'),
-	(NULL, 'conserves'),
-	(NULL, 'boulangerie'),
-	(NULL, 'non-perissables'),
-	(NULL, 'plats prepares');";
+	(1, 'fruits'),
+	(2, 'legumes'),
+	(3, 'viandes'),
+	(4, 'produits laitiers'),
+	(5, 'frais'),
+	(6, 'conserves'),
+	(7, 'boulangerie'),
+	(8, 'non-perissables'),
+	(9, 'plats prepares');";
 mysqli_query($conn, $req);
 
 # admin creation
@@ -71,4 +71,39 @@ foreach ($res as $key => $value) {
 	$sql = "INSERT INTO prod VALUES (NULL, '".substr($value, 0, strrpos($value, '.'))."', ".rand (1, 10).", 'image/".$key.'.'.get_ext($value)."')";
 	mysqli_query($conn, $sql);
 }
+$sql = "INSERT INTO link VALUES 
+(NULL, 1, 1),
+(NULL, 6, 1),
+(NULL, 7, 2),
+(NULL, 1, 3),
+(NULL, 2, 4),
+(NULL, 5, 4),
+(NULL, 7, 5),
+(NULL, 2, 6),
+(NULL, 5, 6),
+(NULL, 7, 7),
+(NULL, 4, 7),
+(NULL, 7, 8),
+(NULL, 5, 9),
+(NULL, 5, 10),
+(NULL, 3, 10),
+(NULL, 4, 11),
+(NULL, 8, 11),
+(NULL, 9, 12),
+(NULL, 3, 12),
+(NULL, 8, 13),
+(NULL, 1, 14),
+(NULL, 5, 14),
+(NULL, 7, 15),
+(NULL, 8, 16),
+(NULL, 8, 17),
+(NULL, 3, 18),
+(NULL, 3, 19),
+(NULL, 2, 20),
+(NULL, 5, 20),
+(NULL, 2, 21),
+(NULL, 6, 21),
+(NULL, 4, 22),
+(NULL, 5, 22);";
+mysqli_query($conn, $sql);
 ?>
