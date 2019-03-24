@@ -21,8 +21,8 @@ h2 {
 }
 
 .prod_im {
-	max-width: calc (100% - 5px);
-	max-height: calc (80% - 5px);
+	max-width: calc(100% - 5px);
+	max-height: calc(80% - 5px);
 	width: 100%;
 	height: 80%;
 }
@@ -54,8 +54,9 @@ h2 {
 }
 
 .contain {
+	flex-wrap: wrap;
 	display: flex;
-		justify-content: space-around;
+	justify-content: space-around;
 }
 
 .prod {
