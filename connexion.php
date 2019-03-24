@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Connexion</title>
-	<link rel="stylesheet" href="connexion2.css">
+	<link rel="stylesheet" href="connexion.css">
 </head>
 <?PHP include ("header.php");?>
 <body>
