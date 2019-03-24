@@ -1,22 +1,7 @@
 body {
-	background-color: #D6EAF8;
+	margin: 0;
 }
 
 h1 {
 	text-align: center;
-}
-
-.header {
-	background-color: #C0C0C0;
-	text-align: right;
-	font-size: 120%;
-}
-
-.cat {
-	margin: none;
-	border: none;
-	padding: none;
-	background-color: lime;
-	font-weight: bold;
-	font-size: 300%;
 }
