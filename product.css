@@ -6,6 +6,10 @@ h1 {
 	text-align: center;
 }
 
+.form {
+	text-align: center;
+}
+
 .prod_img {
 	padding-top: 4%;
 	margin: auto;
@@ -32,6 +36,6 @@ h1 {
 }
 
 .btn {
-	margin: auto;
 	text-align: center;
+	display: block;
 }

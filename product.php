@@ -35,7 +35,7 @@ echo "<p class='name'>" . $res2['name']. "</p>\n";
 echo "<p class='price'>" . $res2['price']." € </p>\n";
 echo "</div>";
 ?>
-<form method="post" action="">
+<form class='btn' method="post" action="">
 	<select name="nb_prod">
 		<?php
 		for ($i = 1; $i <= 10;$i++) {
@@ -43,7 +43,7 @@ echo "</div>";
 		}
 		?>
 	</select>
-	<input type="submit" class="btn" name="add" value="Ajouter au panier"></input>
+	<input type="submit" name="add" value="Ajouter au panier"></input>
 </form>
 <?php
 if ($_POST['add'] == 'Ajouter au panier') {
