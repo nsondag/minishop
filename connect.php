@@ -4,7 +4,7 @@ function connect()
 {
 	$host = '127.0.0.1';
 	$user = 'root';
-	$passwd = 'hubert';
+	$passwd = 'kz11hxmPIT';
 	$conn = mysqli_connect($host, $user, $passwd);
 	if (!$conn) 
 	{
@@ -18,7 +18,7 @@ function connect_db($db)
 {
 	$host = '127.0.0.1';
 	$user = 'root';
-	$passwd = 'hubert';
+	$passwd = 'kz11hxmPIT';
 	$conn = mysqli_connect($host, $user, $passwd, $db);
 	if (!$conn)
 	{
