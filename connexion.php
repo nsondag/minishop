@@ -32,6 +32,7 @@ function connexion()
 <?PHP
 session_start();
 include 'util.php';
+$con = connexion();
 include 'header.php';
 ?>
 <body>
@@ -45,13 +46,13 @@ include 'header.php';
 			<br /><br />
 			<?PHP
 			if ($_POST['submit'] == "OK")
-				if (connexion() == 0)
+				if ($con == 0)
 					echo "<p class='error'>Cet utilisateur n'existe pas.</p>";
-				if (connexion() == 1)
+				if ($con == 1)
 					echo "<p class='success'>Connexion réussie.</p>";
-				if (connexion() == -1)
+				if ($con == -1)
 					echo "<p class='error'>Le mot de passe n'est pas correct.</p>";
-				if (connexion() == 2)
+				if ($con == 2)
 					header("Location: admin.php");
 			else
 			echo "<a href='../register.php'>Pas encore de compte?</a>"
