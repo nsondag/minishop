@@ -32,17 +32,15 @@ else {
 		$sql = "INSERT INTO command VALUES (NULL, ".$user_id['user_id'].", (SELECT prod_id FROM prod WHERE prod_name='".$key."' LIMIT 1), ".$value.")";
 		mysqli_query($conn, $sql);
 	}
-}
-?>
-<h1 style="text-align: center;font-size: 10em">
-<?php
+echo '<h1 style="text-align: center;font-size: 10em">';
 if ($_SESSION['basket'])
 	echo "Validated !";
 else
 	echo "Empty basket !";
-unset($_SESSION['basket']);
+echo '</h1>';
+	unset($_SESSION['basket']);
+}
 ?>
-</h1>
 <p style="text-align: center;font-size: 3em">
 	<a href=".">Back to main page</a>
 </p>
