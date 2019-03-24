@@ -11,9 +11,11 @@ $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_all($res);
 ?>
 	<body>
+	<div class="rest">
 		<h1>Bienvenue au</h1>
 		<img class='main_img' src="Minishop.png">
-		<h2>Suggestions du jour</h2>
+		<h2>Suggestions du moment</h2>
+	</div>
 <div class='contain'>
 <?PHP
 foreach ($row as $elem)
