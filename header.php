@@ -9,12 +9,14 @@ $row = mysqli_fetch_all($res);
 	<link rel="stylesheet" href="header.css">
 </head>
 <header>
+<div class=connexion>
 	<a href="#panier">Panier</a>
 	<a href="connexion.php">Connexion</a>
 	<a href="register.php">Inscription</a>
+</div>
 <table>
 <td>
-<img class='header_img' src="Minishop.png">
+<a href="index.php"><img class='header_img' src="Minishop.png"></a>
 </td>
 <td class='container'>
 <?PHP

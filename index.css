@@ -6,6 +6,11 @@ h1 {
 	text-align: center;
 }
 
+h2 {
+	margin-top: 0;
+	padding-left: 5%;
+}
+
 .main_img {
 
 	padding: 3%;
@@ -13,4 +18,30 @@ h1 {
 	width: 40%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.prod_img {
+	padding: 2%;
+	display: block;
+	width: 93.5%;
+}
+
+ .price {
+	margin-top: 0;
+	padding: 2%;
+	text-align: right;
+	color: red;
+}
+
+.name {
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+	font-size: 200% 
+}
+
+.prod {
+	height: 30vmin;
+	width: 30vmin;
+	border: solid;
 }
