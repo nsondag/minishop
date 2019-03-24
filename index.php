@@ -19,17 +19,17 @@
 				<p class="price"><?PHP echo $row[0][2]." €";?></p>
 			</td>
 			<td class="prod">
-				<img class='prod_img' src="image/<?PHP echo $row[1][0];?>.jpg">
+				<img class='prod_img' src="<?PHP echo $row[1][3];?>">
 				<p class="name"><?PHP echo $row[1][1];?></p>
 				<p class="price"><?PHP echo $row[1][2]." €";?></p>
 			</td>
 			<td class="prod">
-				<img class='prod_img' src="image/<?PHP echo $row[2][0];?>.jpg">
+				<img class='prod_img' src="<?PHP echo $row[2][3];?>">
 				<p class="name"><?PHP echo $row[2][1];?></p>
 				<p class="price"><?PHP echo $row[2][2]." €";?></p>
 			</td>
 			<td class="prod">
-				<img class='prod_img' src="image/<?PHP echo $row[3][0];?>.jpg">
+				<img class='prod_img' src="<?PHP echo $row[3][3];?>">
 				<p class="name"><?PHP echo $row[3][1];?></p>
 				<p class="price"><?PHP echo $row[3][2]." €";?></p>
 			</td>

@@ -8,10 +8,21 @@ include ("header.php");
 $conn = connect_db('minishop');
 $sql = "SELECT * FROM prod WHERE prod_id IN (SELECT fk_prod_id FROM link WHERE fk_cat_id IN (SELECT cat_id FROM cat WHERE cat_name='".$_GET['cat']."'))";
 $res = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($res);
-echo $row['prod_name'];
+$row = mysqli_fetch_all($res);
 ?>
- 	<body>
-		<h1><?PHP  echo $_GET['cat'] ?></h1>
+	<body>
+		<h1><?PHP  echo strtoupper($_GET['cat']) ?></h1>
+		<table>
+<?PHP
+foreach ($row as $elem)
+{
+			echo "<td class='prod'>\n";
+			echo "<img class='prod_img' src='" . $elem[3] . "'>\n";
+			echo "<p class='name'>" . $elem[1]. "</p>\n";
+			echo "<p class='price'>" . $elem[2]." € </p>\n";
+			echo "</td>";
+}
+?>
+		</table>
 	</body>
 </html>
