@@ -18,7 +18,7 @@ $row = mysqli_fetch_all($res);
 foreach ($row as $elem)
 {
 			echo "<td class='prod'>\n";
-			echo "<a href='product.php'><img class='prod_img' src='" . $elem[3] . "'></a>\n";
+			echo "<a href='product.php?prod=".$elem[1]."'><img class='prod_img' src='" . $elem[3] . "'></a>\n";
 			echo "<p class='name'>" . $elem[1]. "</p>\n";
 			echo "<p class='price'>" . $elem[2]." € </p>\n";
 			echo "</td>";
