@@ -46,8 +46,8 @@ include 'header.php';
 			<br /><br />
 			<?PHP
 			if ($_POST['submit'] == "OK")
+			{
 				if ($con == 0)
-{
 					echo "<p class='error'>Cet utilisateur n'existe pas.</p>";
 				if ($con == 1)
 					echo "<p class='success'>Connexion réussie.</p>";
@@ -55,9 +55,9 @@ include 'header.php';
 					echo "<p class='error'>Le mot de passe n'est pas correct.</p>";
 				if ($con == 2)
 					header("Location: admin.php");
-}
+			}
 			else
-			echo "<a href='register.php'>Pas encore de compte?</a>"
+				echo "<a href='register.php'>Pas encore de compte?</a>"
 			?>
 		</form>
 	</body>
