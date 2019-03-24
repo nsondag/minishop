@@ -59,6 +59,7 @@ button {
 	margin: auto;
 	margin-top: 20px;
 	display: block;
+  border: 1px solid #404040;
 }
 
 input[type="submit"] {
@@ -74,4 +75,16 @@ input[type="submit"] {
 	margin: auto;
 	margin-top: 20px;
 	display: block;
+	border: 1px solid #404040;
+}
+
+input[type=text], select, input[type=password] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  background: #B3DAD7;
+  border: 1px solid #404040;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
